@@ -1,0 +1,17 @@
+.results-container {
+    padding-top: 30px;
+    
+}
+.clickable-customer-info{
+    cursor: pointer;
+}
+.search-result-list{
+    cursor: pointer;
+    color: rgb(54, 140, 238);
+}
+.warning-msg {
+    color: red;
+}
+table {
+    width: 100%;
+}

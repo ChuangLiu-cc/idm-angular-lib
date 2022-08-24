@@ -1,0 +1,155 @@
+<div id="details-popup-container">
+</div>
+<!-- <div>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Date of Arrival</mat-label>
+            <input matInput [matDatepicker]="arrivalDatePicker" [(ngModel)]="data.stay.arrivalDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="arrivalDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #arrivalDatePicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Date of Departure</mat-label>
+            <input matInput [matDatepicker]="departureDatePicker" [(ngModel)]="data.stay.departureDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="departureDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #departureDatePicker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="form-field">
+            <mat-label>Room Size</mat-label>
+            <mat-select name="roomSize" [(ngModel)]="data.room.roomSize">
+                <mat-option *ngFor="let roomSize of roomSizes" [value]="roomSize.value">
+                {{roomSize.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-hint>Choose a room type</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Room Quantity</mat-label>
+            <input type="number" matInput placeholder="" max="5" min="1" [(ngModel)]="data.room.roomQuantity">
+            <mat-hint>Maximum: 5</mat-hint>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>First Name</mat-label>
+            <input type="text" name="firstname" #fistname matInput  maxlength="25" [(ngModel)]="data.firstName" >
+            <mat-hint align="end">{{data.firstName?.length || 0}}/25</mat-hint>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Last Name</mat-label>
+            <input type="text" #lastname matInput maxlength="25" [(ngModel)]="data.lastName" >
+            <mat-hint align="end">{{data.lastName?.length || 0}}/25</mat-hint>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. email_address@example.com" [(ngModel)]="data.email">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Phone Number</mat-label>
+            <span matPrefix>+</span>
+            <input type="tel" matInput  [(ngModel)]="data.phone" >
+            <mat-hint>Add your country code first</mat-hint>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Street Name</mat-label>
+            <input type="text" #streetname matInput [(ngModel)]="data.addressStreet.streetName" >
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Street Number</mat-label>
+            <input type="number" #streetnumber matInput [(ngModel)]="data.addressStreet.streetNumber" >
+        </mat-form-field>
+    </div>
+    <div class="ac-form">
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>ZIP</mat-label>
+            <input type="text" #zip matInput [(ngModel)]="data.addressLocation.zipCode" >
+        </mat-form-field>
+        <form [formGroup]="stateForm" class="form-field">
+            <mat-form-field appearance="standard">
+                <mat-label>State</mat-label>
+                <input type="text"
+                     matInput
+                     [(ngModel)]="data.addressLocation.state"
+                     formControlName="stateGroup"
+                     [matAutocomplete]="autoGroup">
+                <mat-autocomplete #autoGroup="matAutocomplete">
+                    <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+                        <mat-option *ngFor="let name of group.names" [value]="name">
+                        {{name}}
+                        </mat-option>
+                    </mat-optgroup>
+                </mat-autocomplete>
+                <mat-hint>Autocomplete</mat-hint>
+            </mat-form-field>
+        </form>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>City</mat-label>
+            <input type="text" #zip matInput [(ngModel)]="data.addressLocation.city" >
+        </mat-form-field>
+
+    </div>
+    <div>
+        <mat-form-field class="form-field">
+            <mat-label>Extras</mat-label>
+            <mat-select name="extras" [(ngModel)]="data.extras" multiple >
+                <mat-option *ngFor="let extra of extras" [value]="extra.value">
+                {{extra.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-radio-group [(ngModel)]="data.payment">
+            <mat-radio-button [value]="payment.value" *ngFor="let payment of payments">{{payment.viewValue}}&emsp;</mat-radio-button>
+          </mat-radio-group>
+    </div>
+    <br>
+    <div>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Personal Note</mat-label>
+            <input type="text" [(ngModel)]="data.note" matInput>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="tag-list" appearance="standard">
+            <mat-label>Tags</mat-label>
+            <mat-chip-list #tagList>
+              <mat-chip *ngFor="let tag of data.tags" (removed)="remove(tag)">
+                {{tag}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input [matChipInputFor]="tagList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+    </div>
+    <div class="slide-layout">
+        <mat-slide-toggle [(ngModel)]="data.reminder">Send me a reminder</mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="data.newsletter">Subscribe to newsletter</mat-slide-toggle>
+        <br>
+        <mat-checkbox [(ngModel)]="data.confirm" >I confirm the information given above</mat-checkbox>
+    </div>
+</div> -->

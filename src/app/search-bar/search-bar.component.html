@@ -1,0 +1,56 @@
+<div class="search-container">
+    <div id="search-bar-container">
+
+    </div>
+    <!-- <div class="top-line">
+        <mat-form-field class="search-name-form" appearance="standard">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" name="cname" [(ngModel)]="searchParam.name" />
+        </mat-form-field>
+        <mat-form-field class="search-email-form" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="cemail" [(ngModel)]="searchParam.email" />
+        </mat-form-field>
+        <mat-form-field class="search-phone-form" appearance="standard">
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" name="cphone" [(ngModel)]="searchParam.phone" />
+        </mat-form-field>
+        <mat-form-field class="search-note-form" appearance="standard">
+            <mat-label>Note</mat-label>
+            <input matInput type="text" name="note" [(ngModel)]="searchParam.note" />
+        </mat-form-field>
+    </div>
+    <div class="bottom-line">
+        <mat-form-field class="search-arroval-form" appearance="standard">
+            <mat-label>Arrival</mat-label>
+            <input matInput [matDatepicker]="arrivalDatePicker" [(ngModel)]="searchParam.arrival">
+            <mat-datepicker-toggle matSuffix [for]="arrivalDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #arrivalDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="search-departure-form" appearance="standard">
+            <mat-label>Departure</mat-label>
+            <input matInput [matDatepicker]="departureDatePicker" [(ngModel)]="searchParam.departure">
+            <mat-datepicker-toggle matSuffix [for]="departureDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #departureDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="search-roomsize-form" appearance="standard">
+            <mat-label>Room Size</mat-label>
+            <mat-select name="roomSize" [(ngModel)]="searchParam.room">
+                <mat-option *ngFor="let roomSize of roomSizes" [value]="roomSize.value">
+                {{roomSize.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="search-btn">
+            <button mat-button color="primary" (click)="searchCustomers(searchParam)"><mat-icon>search-btn</mat-icon>Search</button>
+        </div>
+        <div class="clear-btn">
+            <button mat-button color="primary" (click)="clearSearchParam()"><mat-icon>clear-btn</mat-icon>Clear</button>
+        </div>
+    </div> -->
+
+</div>
+
+<!-- <app-customer-list></app-customer-list> -->
+<app-result-list [searchResults]="searchResults" [noSearchResults]="noSearchResults"></app-result-list>
+

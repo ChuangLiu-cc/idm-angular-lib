@@ -1,0 +1,65 @@
+.search-container{
+    justify-content: center;
+    /*align-items: center;*/
+    margin: auto;
+    margin-top: 100px;
+    background-color:rgb(238, 238, 238);
+    width: 1000px;
+    /* height: 400px; */
+    border-radius: 4px;
+    height: max-content;
+}
+.top-line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.bottom-line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.search-name-form{
+    padding: 25px;
+} 
+.search-email-form{
+    padding: 25px;
+}
+.search-phone-form{
+    padding: 25px;
+}
+.search-note-form{
+    padding: 25px;
+}
+.search-arrival-form{
+    padding: 10px;
+}
+.search-departure-form{
+    padding: 10px;
+}
+.search-roomsize-form{
+    padding: 10px;
+} 
+.search-btn{
+    margin-left: 15px;
+}
+.clear-btn{
+    padding: 10px;
+}
+input {
+    width: 100%;
+    display: inline-block;
+}
+
+
+/* ::ng-deep input.mat-input-element {
+    color: white;
+  }
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: white !important;
+}
+::ng-deep .mat-form-field-underline {
+    background-color: white!important;
+} */
