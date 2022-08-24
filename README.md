@@ -1,4 +1,5 @@
 # angular pro works with idm-search-results-details-lib
+npm i idm-reservation-search-results-details-lib
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
